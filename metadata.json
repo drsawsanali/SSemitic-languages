@@ -1,0 +1,8 @@
+{
+  "name": "Semitic Encyclopedia",
+  "description": "Interactive encyclopedia for researching ancient Semitic inscriptions, featuring maps, decoding tools, OCR, and comprehensive academic references.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

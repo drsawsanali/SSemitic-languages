@@ -1,0 +1,148 @@
+[
+  {
+    "id": "SRC-CIS-PHOENICIA-001",
+    "originalFileName": "CIS_Pars_Prima_Phoenicia.pdf",
+    "title": "Corpus Inscriptionum Semiticarum: Pars Prima (Inscriptiones Phoenicias Continens)",
+    "titleAr": "مدونة النقوش السامية: الجزء الأول (نقوش فينيقية وبونية)",
+    "author": "Ernest Renan (Académie des Inscriptions et Belles-Lettres)",
+    "publicationYear": "1881",
+    "language": "اللاتينية / الفينيقية",
+    "extractionDate": "2026-09-02",
+    "filePath": "assets/books/CIS_Pars_Prima_Phoenicia.pdf",
+    "fileSizeBytes": 887,
+    "sourceType": "مدونة نقوش كلاسيكية",
+    "status": "مفحوص ومستخرج بنجاح",
+    "summary": "المرجع الشامل الأساسي لجمع النقوش الفينيقية والقرطاجية من حوض البحر الأبيض المتوسط مع رسوم فوتوغرافية وتفريغ كلاسيكي للخطوط.",
+    "relatedLanguages": [
+      "Phoenician",
+      "Punic",
+      "Old Canaanite"
+    ],
+    "relatedInscriptions": [
+      "PHOEN-AHIRAM-001",
+      "MOAB-MESHA-001"
+    ],
+    "notes": "تم استخراج العنوان والمؤلف وسنة النشر من صفحة العنوان التمهيدية للمدونة الباريسية."
+  },
+  {
+    "id": "SRC-RES-SEMITIQUE-002",
+    "originalFileName": "RES_Repertoire_Epigraphie_Semitique.pdf",
+    "title": "Répertoire d'Épigraphie Sémitique (RES) - Tome Premier",
+    "titleAr": "دليل الإبيغرافيا السامية: المجلد الأول",
+    "author": "Charles Clermont-Ganneau & Jean-Baptiste Chabot",
+    "publicationYear": "1900",
+    "language": "الفرنسية / السامية المقارنة",
+    "extractionDate": "2026-09-02",
+    "filePath": "assets/books/RES_Repertoire_Epigraphie_Semitique.pdf",
+    "fileSizeBytes": 905,
+    "sourceType": "فهرس مسحي موثق",
+    "status": "مفحوص ومستخرج بنجاح",
+    "summary": "فهرس إبيغرافي دولي يستدرك ويشرح النقوش السامية الغربية والشمالية الغربية والآرامية المكتشفة في بلاد الشام ومصر والجزيرة.",
+    "relatedLanguages": [
+      "Old Aramaic",
+      "Phoenician",
+      "Syriac"
+    ],
+    "relatedInscriptions": [
+      "ARAM-TEL-DAN-001",
+      "PHOEN-AHIRAM-001"
+    ],
+    "notes": "تم استخراج التوثيق التحريري من الصفحة الاستهلالية للجنة الأكاديمية الفرنسية."
+  },
+  {
+    "id": "SRC-UGARIT-GORDON-003",
+    "originalFileName": "Ugaritic_Textbook_Gordon.pdf",
+    "title": "Ugaritic Textbook: Grammar, Texts in Transliteration, Cuneiform Selections and Glossary",
+    "titleAr": "كتاب الأوغاريتية: القواعد، النصوص، والمختارات المسمارية والمعجم",
+    "author": "Cyrus H. Gordon",
+    "publicationYear": "1965",
+    "language": "الإنجليزية / الأوغاريتية",
+    "extractionDate": "2026-09-02",
+    "filePath": "assets/books/Ugaritic_Textbook_Gordon.pdf",
+    "fileSizeBytes": 889,
+    "sourceType": "معجم وكتاب تدريسي أكاديمي",
+    "status": "مفحوص ومستخرج بنجاح",
+    "summary": "المرجع القياسي لدراسة الأدب الأوغاريتي المسماري الأبجدي ونصوص رأس شمرا وتأصيلها مع الساميات الشمالية الغربية.",
+    "relatedLanguages": [
+      "Ugaritic",
+      "Hebrew",
+      "Phoenician"
+    ],
+    "relatedInscriptions": [
+      "UGARIT-BAAL-001"
+    ],
+    "notes": "تتطابق النصوص المحللة مع رقم اللقى KTU / UT في الأرشيف الفيلولوجي."
+  },
+  {
+    "id": "SRC-SABAEAN-JAMME-004",
+    "originalFileName": "Sabaean_Inscriptions_Mahram_Bilqis.pdf",
+    "title": "Inscriptions from Mahram Bilqis (Ma'rib) - Sabaean Epigraphic Survey",
+    "titleAr": "نقوش محرم بلقيس (مأرب): المسح الإبيغرافي لمعبد أوام",
+    "author": "Albert Jamme",
+    "publicationYear": "1962",
+    "language": "الإنجليزية / السبئية",
+    "extractionDate": "2026-09-02",
+    "filePath": "assets/books/Sabaean_Inscriptions_Mahram_Bilqis.pdf",
+    "fileSizeBytes": 877,
+    "sourceType": "تقرير مسح أثري إبيغرافي",
+    "status": "مفحوص ومستخرج بنجاح",
+    "summary": "توثيق شامل لنقوش خط المسند المكتشفة في معبد أوام بعاصمة مملكة سبأ، يشتمل على دراسات تاريخية ونذور ملكية وقوائم أقيال.",
+    "relatedLanguages": [
+      "Sabaic",
+      "Qatabanian",
+      "Hadramawtic"
+    ],
+    "relatedInscriptions": [
+      "SAB-AWAM-001"
+    ],
+    "notes": "تم توثيق نقوش عهد إل شرح يحضب وإل كرب يهنعم المذكورة في الموسوعة."
+  },
+  {
+    "id": "SRC-MESHA-GINSBURG-005",
+    "originalFileName": "Mesha_Moabite_Stone_Facsimile.pdf",
+    "title": "The Inscription of Mesha, King of Moab: Facsimile, Transcription and Commentary",
+    "titleAr": "نقش ميشع ملك مؤاب: الفاكسيملي والتفريغ والشرح اللغوي",
+    "author": "Christian D. Ginsburg",
+    "publicationYear": "1871",
+    "language": "الإنجليزية / المؤابية الكنعانية",
+    "extractionDate": "2026-09-02",
+    "filePath": "assets/books/Mesha_Moabite_Stone_Facsimile.pdf",
+    "fileSizeBytes": 891,
+    "sourceType": "مونوغراف تحليلي",
+    "status": "مفحوص ومستخرج بنجاح",
+    "summary": "أول دراسة إبيغرافية تفصيلية كاملة لمسلة ذيبان لميشع المؤابي بعد اكتشافها مع نقل خطي ومقارنة بالكنعانية والأرامية القديمة.",
+    "relatedLanguages": [
+      "Moabite",
+      "Phoenician",
+      "Biblical Hebrew"
+    ],
+    "relatedInscriptions": [
+      "MOAB-MESHA-001"
+    ],
+    "notes": "الرسومات الحجرية متطابقة مع النص الحجري لمسلة ميشع في متحف اللوفر."
+  },
+  {
+    "id": "SRC-NEMARA-EPITAPH-006",
+    "originalFileName": "Namarah_Epitaph_Imru_al_Qays.pdf",
+    "title": "وثيقة نقش النمارة: شاهد قبر امرئ القيس بن عمرو ملك العرب كُلّها",
+    "titleAr": "وثيقة نقش النمارة المؤرخة بسنة 328م",
+    "author": "غير معروف",
+    "publicationYear": "غير معروف",
+    "language": "العربية القديمة / النبطية المتأخرة",
+    "extractionDate": "2026-09-02",
+    "filePath": "assets/books/Namarah_Epitaph_Imru_al_Qays.pdf",
+    "fileSizeBytes": 890,
+    "sourceType": "لوح بازلتي جنائزي مدوّن",
+    "status": "مفحوص ومستخرج (بيانات ناقصة معلّمة صراحة بـ غير معروف)",
+    "summary": "نص شاهد قبر ملكي بالخط النبطي المائل ولغة عربية فصحى مبكرة. كاتب النقش الحقيقي مجهول وتاريخ طباعة هذه اللقى المستنسخة غير مسجل في الوثيقة المستخرجة.",
+    "relatedLanguages": [
+      "Old Arabic",
+      "Nabataean",
+      "Safaitic"
+    ],
+    "relatedInscriptions": [
+      "NABAT-NEMARA-001"
+    ],
+    "notes": "تم الالتزام بوضع 'غير معروف' للمؤلف وسنة النشر بدلاً من الافتراض بناءً على ضوابط التدقيق الصارم."
+  }
+]

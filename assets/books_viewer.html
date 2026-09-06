@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خزانة الكتب والمصادر الإبيغرافية</title>
+  <style>
+    :root {
+      --bg-primary: #15110e;
+      --bg-surface: #221b16;
+      --bg-card: #2c231c;
+      --accent-gold: #e5b974;
+      --accent-copper: #c07a48;
+      --text-main: #f5ebe0;
+      --text-muted: #b0a497;
+      --border-color: rgba(229, 185, 116, 0.2);
+      --unknown-badge: #8b3a3a;
+      --known-badge: #2a5a3b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans Arabic', Tahoma, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      padding: 16px;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2b1f17 0%, #1c140f 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      color: var(--accent-gold);
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 260px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-surface);
+      color: var(--text-main);
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .search-box input:focus {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 2px rgba(229, 185, 116, 0.25);
+    }
+
+    .viewer-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 900px) {
+      .viewer-layout.split-view {
+        grid-template-columns: 380px 1fr;
+      }
+    }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+    }
+
+    .book-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .book-card:hover {
+      border-color: var(--accent-gold);
+      transform: translateY(-2px);
+    }
+
+    .book-card.active {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 12px rgba(229, 185, 116, 0.3);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .book-title {
+      font-weight: bold;
+      color: var(--accent-gold);
+      font-size: 1.05rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .badge-unknown {
+      background-color: var(--unknown-badge);
+      color: #ffcccc;
+    }
+
+    .badge-known {
+      background-color: var(--known-badge);
+      color: #b7efc5;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.82rem;
+      margin-bottom: 8px;
+      color: var(--text-muted);
+    }
+
+    .meta-row strong {
+      color: #ded1c4;
+    }
+
+    .source-record-box {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      margin-top: 8px;
+      margin-bottom: 12px;
+      border: 1px dashed rgba(255, 255, 255, 0.1);
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+
+    .btn-read {
+      background-color: var(--accent-copper);
+      color: white;
+    }
+
+    .btn-read:hover {
+      background-color: #a86435;
+    }
+
+    .btn-external {
+      background-color: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--accent-gold);
+    }
+
+    .btn-external:hover {
+      background-color: rgba(229, 185, 116, 0.1);
+    }
+
+    /* عارض الـ PDF الداخلي */
+    #pdfViewerContainer {
+      display: none;
+      background: var(--bg-surface);
+      border: 1px solid var(--accent-gold);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    #pdfViewerContainer.open {
+      display: flex;
+      flex-direction: column;
+      height: 75vh;
+      min-height: 500px;
+    }
+
+    .viewer-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 16px;
+      background: #1b1410;
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .viewer-frame {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📚 خزانة الكتب والمصادر الإبيغرافية المستقلة</h1>
+    <p class="subtitle">
+      وحدة مستقلة لفحص وثائق ونقوش اللغات السامية واستخراج سجلات المصادر (Source Records) مع بيان أي قيمة غير متوفرة صراحة بـ "غير معروف".
+    </p>
+  </header>
+
+  <div class="toolbar">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="ابحث بالعنوان، اسم الملف، المؤلف، اللغة، أو النقش المرتبط..." />
+    </div>
+  </div>
+
+  <!-- عارض PDF المدمج دون مغادرة الصفحة -->
+  <div id="pdfViewerContainer">
+    <div class="viewer-topbar">
+      <div id="viewerCurrentBookTitle" style="font-weight: bold; color: var(--accent-gold); font-size: 0.95rem;"></div>
+      <div style="display: flex; gap: 8px; align-items: center;">
+        <a id="fallbackNewTabBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-external" style="padding: 6px 12px; font-size: 0.8rem;">
+          ↗️ فتح في تبويب جديد (احتياطي)
+        </a>
+        <button id="closeViewerBtn" class="btn btn-external" style="padding: 6px 12px; font-size: 0.8rem; color: #ff9999;">
+          ✕ إغلاق القارئ
+        </button>
+      </div>
+    </div>
+    <iframe id="pdfFrame" class="viewer-frame" src="about:blank" title="عارض PDF"></iframe>
+  </div>
+
+  <main style="margin-top: 20px;">
+    <div id="booksGrid" class="books-grid">
+      <!-- يتم توليد البطاقات ديناميكياً بواسطة books.js -->
+    </div>
+  </main>
+
+  <script type="module">
+    import { BooksManager } from './js/modules/books.js';
+
+    // مصدر احتياطي مدمج للتشغيل الفوري في مختلف بيئات الويب والأندرويد
+    window.__SEMITIC_SOURCES_DATA__ = [
+      {
+        "id": "SRC-CIS-PHOENICIA-001",
+        "originalFileName": "CIS_Pars_Prima_Phoenicia.pdf",
+        "title": "Corpus Inscriptionum Semiticarum: Pars Prima (Inscriptiones Phoenicias Continens)",
+        "titleAr": "مدونة النقوش السامية: الجزء الأول (نقوش فينيقية وبونية)",
+        "author": "Ernest Renan (Académie des Inscriptions et Belles-Lettres)",
+        "publicationYear": "1881",
+        "language": "اللاتينية / الفينيقية",
+        "extractionDate": "2026-09-02",
+        "filePath": "books/CIS_Pars_Prima_Phoenicia.pdf",
+        "summary": "المرجع الشامل الأساسي لجمع النقوش الفينيقية والقرطاجية من حوض البحر الأبيض المتوسط.",
+        "relatedLanguages": ["Phoenician", "Punic", "Old Canaanite"],
+        "relatedInscriptions": ["PHOEN-AHIRAM-001", "MOAB-MESHA-001"]
+      },
+      {
+        "id": "SRC-RES-SEMITIQUE-002",
+        "originalFileName": "RES_Repertoire_Epigraphie_Semitique.pdf",
+        "title": "Répertoire d'Épigraphie Sémitique (RES) - Tome Premier",
+        "titleAr": "دليل الإبيغرافيا السامية: المجلد الأول",
+        "author": "Charles Clermont-Ganneau & Jean-Baptiste Chabot",
+        "publicationYear": "1900",
+        "language": "الفرنسية / السامية المقارنة",
+        "extractionDate": "2026-09-02",
+        "filePath": "books/RES_Repertoire_Epigraphie_Semitique.pdf",
+        "summary": "فهرس إبيغرافي دولي يستدرك ويشرح النقوش السامية الغربية والشمالية الغربية والآرامية.",
+        "relatedLanguages": ["Old Aramaic", "Phoenician", "Syriac"],
+        "relatedInscriptions": ["ARAM-TEL-DAN-001", "PHOEN-AHIRAM-001"]
+      },
+      {
+        "id": "SRC-UGARIT-GORDON-003",
+        "originalFileName": "Ugaritic_Textbook_Gordon.pdf",
+        "title": "Ugaritic Textbook: Grammar, Texts and Glossary",
+        "titleAr": "كتاب الأوغاريتية: القواعد والنصوص والمعجم",
+        "author": "Cyrus H. Gordon",
+        "publicationYear": "1965",
+        "language": "الإنجليزية / الأوغاريتية",
+        "extractionDate": "2026-09-02",
+        "filePath": "books/Ugaritic_Textbook_Gordon.pdf",
+        "summary": "المرجع القياسي لدراسة الأدب الأوغاريتي المسماري الأبجدي ونصوص رأس شمرا.",
+        "relatedLanguages": ["Ugaritic", "Hebrew", "Phoenician"],
+        "relatedInscriptions": ["UGARIT-BAAL-001"]
+      },
+      {
+        "id": "SRC-SABAEAN-JAMME-004",
+        "originalFileName": "Sabaean_Inscriptions_Mahram_Bilqis.pdf",
+        "title": "Inscriptions from Mahram Bilqis (Ma'rib) - Sabaean Epigraphic Survey",
+        "titleAr": "نقوش محرم بلقيس (مأرب): المسح الإبيغرافي لمعبد أوام",
+        "author": "Albert Jamme",
+        "publicationYear": "1962",
+        "language": "الإنجليزية / السبئية",
+        "extractionDate": "2026-09-02",
+        "filePath": "books/Sabaean_Inscriptions_Mahram_Bilqis.pdf",
+        "summary": "توثيق شامل لنقوش خط المسند المكتشفة في معبد أوام بعاصمة مملكة سبأ.",
+        "relatedLanguages": ["Sabaic", "Qatabanian", "Hadramawtic"],
+        "relatedInscriptions": ["SAB-AWAM-001"]
+      },
+      {
+        "id": "SRC-MESHA-GINSBURG-005",
+        "originalFileName": "Mesha_Moabite_Stone_Facsimile.pdf",
+        "title": "The Inscription of Mesha, King of Moab: Facsimile, Transcription and Commentary",
+        "titleAr": "نقش ميشع ملك مؤاب: الفاكسيملي والتفريغ والشرح اللغوي",
+        "author": "Christian D. Ginsburg",
+        "publicationYear": "1871",
+        "language": "الإنجليزية / المؤابية الكنعانية",
+        "extractionDate": "2026-09-02",
+        "filePath": "books/Mesha_Moabite_Stone_Facsimile.pdf",
+        "summary": "دراسة إبيغرافية تفصيلية لمسلة ذيبان لميشع المؤابي بعد اكتشافها.",
+        "relatedLanguages": ["Moabite", "Phoenician", "Biblical Hebrew"],
+        "relatedInscriptions": ["MOAB-MESHA-001"]
+      },
+      {
+        "id": "SRC-NEMARA-EPITAPH-006",
+        "originalFileName": "Namarah_Epitaph_Imru_al_Qays.pdf",
+        "title": "وثيقة نقش النمارة: شاهد قبر امرئ القيس بن عمرو ملك العرب كُلّها",
+        "titleAr": "وثيقة نقش النمارة المؤرخة بسنة 328م",
+        "author": "غير معروف",
+        "publicationYear": "غير معروف",
+        "language": "العربية القديمة / النبطية المتأخرة",
+        "extractionDate": "2026-09-02",
+        "filePath": "books/Namarah_Epitaph_Imru_al_Qays.pdf",
+        "summary": "نص شاهد قبر ملكي بالخط النبطي المائل ولغة عربية فصحى مبكرة. تم وسم البيانات الناقصة صراحة بـ 'غير معروف'.",
+        "relatedLanguages": ["Old Arabic", "Nabataean", "Safaitic"],
+        "relatedInscriptions": ["NABAT-NEMARA-001"]
+      }
+    ];
+
+    const manager = new BooksManager('data/sources.json');
+
+    const grid = document.getElementById('booksGrid');
+    const searchInput = document.getElementById('searchInput');
+    const pdfContainer = document.getElementById('pdfViewerContainer');
+    const pdfFrame = document.getElementById('pdfFrame');
+    const viewerTitle = document.getElementById('viewerCurrentBookTitle');
+    const fallbackBtn = document.getElementById('fallbackNewTabBtn');
+    const closeViewerBtn = document.getElementById('closeViewerBtn');
+
+    async function init() {
+      await manager.loadSources();
+      render(manager.getAllSources());
+
+      searchInput.addEventListener('input', (e) => {
+        const results = manager.searchSources(e.target.value);
+        render(results);
+      });
+
+      closeViewerBtn.addEventListener('click', () => {
+        pdfContainer.classList.remove('open');
+        pdfFrame.src = 'about:blank';
+      });
+    }
+
+    function render(sources) {
+      if (!sources.length) {
+        grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">لا توجد كتب مطابقة لخيارات البحث.</div>';
+        return;
+      }
+
+      grid.innerHTML = sources.map(s => {
+        const isAuthorUnknown = !s.author || s.author === 'غير معروف';
+        const isYearUnknown = !s.publicationYear || s.publicationYear === 'غير معروف';
+
+        const authorBadge = isAuthorUnknown 
+          ? '<span class="badge badge-unknown">غير معروف</span>' 
+          : `<span class="badge badge-known">${s.author}</span>`;
+
+        const yearBadge = isYearUnknown
+          ? '<span class="badge badge-unknown">غير معروف</span>'
+          : `<span class="badge badge-known">${s.publicationYear}</span>`;
+
+        return `
+          <div class="book-card" id="card-${s.id}">
+            <div>
+              <div class="card-header">
+                <div class="book-title">${s.titleAr || s.title}</div>
+              </div>
+
+              <div class="meta-row">
+                <div><strong>المؤلف:</strong> ${authorBadge}</div>
+                <div><strong>سنة النشر:</strong> ${yearBadge}</div>
+              </div>
+
+              <div class="meta-row">
+                <div><strong>اللغة:</strong> ${s.language || 'غير معروف'}</div>
+              </div>
+
+              <!-- سجل المصدر (Source Record) المنفصل -->
+              <div class="source-record-box">
+                <div>📄 <strong>الملف الأصلي:</strong> <code>${s.originalFileName}</code></div>
+                <div>📅 <strong>تاريخ الاستخراج:</strong> ${s.extractionDate || '2026-09-02'}</div>
+                <div>🔗 <strong>نقوش مرتبطة:</strong> ${(s.relatedInscriptions || []).join('، ') || 'غير محدد'}</div>
+                <div>🗣️ <strong>لغات مرتبطة:</strong> ${(s.relatedLanguages || []).join('، ') || 'غير محدد'}</div>
+              </div>
+
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">
+                ${s.summary}
+              </p>
+            </div>
+
+            <div class="card-actions">
+              <button class="btn btn-read" onclick="window.openBook('${s.id}')">
+                📖 قراءة مباشرة
+              </button>
+              <a class="btn btn-external" href="${s.filePath}" target="_blank" rel="noopener noreferrer">
+                ↗️ تبويب جديد
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    window.openBook = function(id) {
+      const source = manager.getSourceById(id);
+      if (!source) return;
+
+      viewerTitle.innerHTML = `📖 ${source.titleAr || source.title} &nbsp;<span style="font-size:0.75rem; color:#aaa;">(${source.originalFileName})</span>`;
+      fallbackBtn.href = source.filePath;
+      
+      // فتح الـ PDF داخل الإطار في نفس الصفحة
+      pdfFrame.src = source.filePath + '#toolbar=1';
+      pdfContainer.classList.add('open');
+      pdfContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // تمييز البطاقة النشطة
+      document.querySelectorAll('.book-card').forEach(c => c.classList.remove('active'));
+      const activeCard = document.getElementById(`card-${id}`);
+      if (activeCard) activeCard.classList.add('active');
+    };
+
+    init();
+  </script>
+</body>
+</html>

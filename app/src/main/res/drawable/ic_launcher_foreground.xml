@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:pivotX="54"
+        android:pivotY="54"
+        android:scaleX="0.75"
+        android:scaleY="0.75"
+        android:translateX="13.5"
+        android:translateY="13.5">
+        <!-- Tablet / Stele background -->
+        <path
+            android:fillColor="#F4EAD7"
+            android:pathData="M24,18 C24,14 27,10 32,10 L76,10 C81,10 84,14 84,18 L84,90 C84,94 80,98 76,98 L32,98 C28,98 24,94 24,90 Z" />
+        <!-- Stele header rounded arch -->
+        <path
+            android:fillColor="#E2C9A1"
+            android:pathData="M24,28 C24,18 34,10 54,10 C74,10 84,18 84,28 L84,32 L24,32 Z" />
+        <!-- Solar / Winged disk symbol on top arch -->
+        <path
+            android:fillColor="#B87840"
+            android:pathData="M54,16 A5,5 0 1,0 54,26 A5,5 0 1,0 54,16 Z" />
+        <path
+            android:fillColor="#B87840"
+            android:pathData="M38,20 L46,21 L46,19 Z M62,19 L62,21 L70,20 Z" />
+        <!-- Inscribed cuneiform & alphabetic horizontal lines -->
+        <path
+            android:fillColor="#7D4C27"
+            android:pathData="M30,38 L78,38 L78,40 L30,40 Z M30,46 L78,46 L78,48 L30,48 Z M30,54 L78,54 L78,56 L30,56 Z M30,62 L78,62 L78,64 L30,64 Z M30,70 L78,70 L78,72 L30,72 Z M30,78 L78,78 L78,80 L30,80 Z M30,86 L66,86 L66,88 L30,88 Z" />
+        <!-- Ancient Semitic Glyphs detail in center (Aleph / Musnad / Cuneiform wedge) -->
+        <path
+            android:fillColor="#486F9E"
+            android:pathData="M34,42 L42,42 L38,45 Z M46,42 L54,42 L50,45 Z M58,42 L66,42 L62,45 Z" />
+        <path
+            android:fillColor="#B87840"
+            android:pathData="M34,50 L40,50 L37,53 Z M44,50 L52,50 L48,53 Z M56,50 L64,50 L60,53 Z" />
+        <path
+            android:fillColor="#147E50"
+            android:pathData="M34,58 L42,58 L38,61 Z M46,58 L54,58 L50,61 Z M58,58 L68,58 L63,61 Z" />
+    </group>
+</vector>
